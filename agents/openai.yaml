@@ -1,0 +1,4 @@
+interface:
+  display_name: "循证决策汇报 Evidence-Led Presentations"
+  short_description: "把录音、研究与经营数据转成结论清楚、证据可追溯的专业汇报PPT"
+  default_prompt: "请使用 $evidence-led-presentations，基于我提供的材料制作一份结论先行、数据可追溯、图表清晰的管理层汇报PPT。"

@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "synthetic": true,
+  "decision": "虚构案例：是否扩大某服务的渠道投入",
+  "audience": "虚构经营管理团队",
+  "as_of": "2026-01-31",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "虚构服务经营数据",
+      "publisher": "示例编写者",
+      "locator": "本示例内置数据，无真实外部来源",
+      "published_on": "2026-01-31",
+      "period": "2024、2025自然年；订阅人数为各年年末时点",
+      "scope": "同一虚构地区、同一服务；金额单位万元人民币；人数单位万人",
+      "limitations": "完全虚构；未提供月均人数、毛利、留存或获客成本，不能推算年度ARPU或利润",
+      "provenance": "synthetic"
+    }
+  ],
+  "claims": [
+    {
+      "id": "C1", "kind": "fact",
+      "text": "在本虚构数据集中，年末订阅人数从10万降至9万，年度订阅收入从1000万元增至1200万元。",
+      "source_ids": ["S1"]
+    },
+    {
+      "id": "C2", "kind": "inference",
+      "text": "收入增长与年末订阅规模下降并存，现有数据不能证明留存改善。",
+      "source_ids": ["S1"],
+      "reasoning": "年度收入是期间流量，年末订阅人数是时点存量；缺少同一队列的续费数据。"
+    },
+    {
+      "id": "C3", "kind": "recommendation",
+      "text": "建议先验证留存与获客贡献，再决定是否扩大渠道投入。",
+      "source_ids": ["S1"],
+      "reasoning": "只有收入增长尚不能确认新增投入可盈利；本建议未被批准为执行计划。"
+    }
+  ],
+  "slides": [
+    {
+      "id": "P1",
+      "title": "虚构案例｜收入增长仍不足以支持扩大渠道投入",
+      "question": "现在应作出什么资源决策？",
+      "claim_ids": ["C2", "C3"],
+      "visual": "结论卡与待验证条件",
+      "implication": "先核验留存、毛利与获客成本，再讨论加码。",
+      "charts": []
+    },
+    {
+      "id": "P2",
+      "title": "虚构案例｜收入上升与年末订阅人数下降并存",
+      "question": "现有增长证据说明了什么？",
+      "claim_ids": ["C1", "C2"],
+      "visual": "并排两张柱状图；分别标注单位，不共用纵轴",
+      "implication": "不能用年末人数直接代替年度平均付费人数。",
+      "charts": [
+        {
+          "type": "bar", "unit": "万人", "period": "2024、2025年末",
+          "scope": "同一虚构地区、同一服务的期末付费订阅人数",
+          "basis": "observed", "labels": ["2024", "2025"],
+          "series": [{"name": "年末订阅人数", "values": [10, 9]}],
+          "source_ids": ["S1"]
+        },
+        {
+          "type": "bar", "unit": "万元人民币", "period": "2024、2025自然年",
+          "scope": "同一虚构地区、同一服务的全年订阅收入",
+          "basis": "observed", "labels": ["2024", "2025"],
+          "series": [{"name": "年度订阅收入", "values": [1000, 1200]}],
+          "source_ids": ["S1"]
+        }
+      ]
+    }
+  ]
+}
